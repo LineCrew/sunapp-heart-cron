@@ -1,10 +1,10 @@
-var dotenv = require('dotenv');
-var Sequelize = require('sequelize');
-var CronJob = require('cron').CronJob;
+const dotenv = require('dotenv');
+const Sequelize = require('sequelize');
+const CronJob = require('cron').CronJob;
 
 dotenv.config();
 
-var sequelize = new Sequelize(
+const sequelize = new Sequelize(
   process.env.DATABASE_NAME,
   process.env.USERNAME,
   process.env.PASSWORD,
@@ -18,7 +18,7 @@ var sequelize = new Sequelize(
   }
 );
 
-var job = new CronJob({
+const job = new CronJob({
   // Mon ~ Sun, 23:59 PM
   cronTime: '00 59 23 * * 0-7',
   onTick: function() {
