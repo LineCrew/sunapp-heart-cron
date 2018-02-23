@@ -21,7 +21,7 @@ const sequelize = new Sequelize(
 const job = new CronJob({
   // Mon ~ Sun, 23:59 PM
   cronTime: '00 59 23 * * 0-7',
-  onTick: function() {
+  onTick: () => {
     sequelize.query(process.env.CRON_QUERY, { type: sequelize.QueryTypes.SELECT})
     .then(result => console.log(result));
   },
